@@ -100,7 +100,7 @@ class MemoryGame {
 	}
 
 	checkedFlippedCardsMatch() {
-      return this.flippedCards.every(card => card.value == this.flippedCards[0].value);
+		return this.flippedCards.every(card => card.value == this.flippedCards[0].value);
 	}
 
 	restoreFlippedAndSaveMatch(match) {
