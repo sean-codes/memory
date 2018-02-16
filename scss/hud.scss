@@ -1,67 +1,81 @@
 .hud {
-	position:fixed;
-	display:flex;
-	left:50%; top:0;
-	height:50px; width:100%;
-	line-height:50px;
-	padding:0 0.5em;
-	background:#64A;
-	box-shadow:0px 0px 12px rgba(0, 0, 0, 0.5);
-	border:1px solid rgba(0, 0, 0, 0.25);
-	text-transform:uppercase;
-	font-weight:600;
+	position: fixed;
+	display: flex;
+	left: 50%;
+	top: 0;
+	height: 50px;
+	width: 100%;
+	line-height: 50px;
+	padding: 0 0.5em;
+	background: #64A;
+	box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+	border: 1px solid rgba(0, 0, 0, 0.25);
+	text-transform: uppercase;
+	font-weight: 600;
 	transition: transform 0.5s, top 0.5s;
-	transform:translateY(0%) translateX(-50%);
+	transform: translateY(0%) translateX(-50%);
 	z-index: 1;
+
 	.hudpart {
-		max-width:1280px;
-		display:flex;
-		width:100%;
-		// Elements
+		max-width: 1280px;
+		display: flex;
+		width: 100%;
+
 		.space {
 			flex: 1;
 		}
+
 		.text {
-			margin: 0em 0.5em;
+			margin: 0 0.5em;
+			text-align: center;
 		}
+
 		.button {
-			width:initial; height:100%;
-			margin:0; padding:0 1em;
-			text-transform:inherit;
-			font-weight:inherit;
-			font-size:inherit;
+			width: initial;
+			height: 100%;
+			margin: 0;
+			padding: 0 1em;
+			text-transform: inherit;
+			font-weight: inherit;
+			font-size: inherit;
 			border: none;
-			cursor:pointer;
+			cursor: pointer;
+
 			&:hover {
-				background:rgba(0, 0, 0, 0.25);
+				background: rgba(0, 0, 0, 0.25);
 			}
 		}
+
 		&.overlay {
-			display:none;
+			display: none;
 		}
 	}
-	// Huds
-	&.overlay{
-		margin:auto;
-		display:block;
-		top:50%; height:auto;
-		transform:translateY(-50%) translateX(-50%);
-	   padding:2em;
 
-		.hudpart{
-			display:block;
-			&:not(.overlay){ display:none; }
+	&.overlay {
+		margin: auto;
+		display: block;
+		top: 50%;
+		height: auto;
+		transform: translateY(-50%) translateX(-50%);
+		padding: 2em;
+
+		.hudpart {
+			display: block;
+
+			&:not(.overlay) {
+				display: none;
+			}
 		}
 
-		.text{
-			text-align:center;
-			line-height:1.25em;
-	      padding:0 0.5em;
+		.text {
+			line-height: 1.25em;
+			padding: 0 0.5em;
 		}
+
 		.button {
-			border:2px solid #FFF;
-			margin:1.5em auto 0 auto;
-			height:50px;
+			border: 2px solid #FFF;
+			margin: 1.5em auto 0;
+			height: 50px;
 		}
 	}
 }

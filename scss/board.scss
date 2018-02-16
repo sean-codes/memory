@@ -5,31 +5,31 @@
 	animation: overflowAfterAnimation 1s infinite;
 	animation-delay: 1s;
 
-	.board {
-		height:100%;
-		padding:10px;
-		margin:auto;
-		flex-wrap:wrap;
-		display:flex;
-		background:#64A;
-		border:1px solid rgba(0, 0, 0, 0.25);
-		border-radius:5px;
-		max-width:700px;
-		min-height:300px;
-		max-height:550px;
-		transform:translateY(0);
-		transition: all 1s;
-		transition-delay: 0.25s;
-		opacity:1;
+.board {
+	height:100%;
+	padding:10px;
+	margin:auto;
+	flex-wrap:wrap;
+	display:flex;
+	background:#64A;
+	border:1px solid rgba(0, 0, 0, 0.25);
+	border-radius:5px;
+	max-width:700px;
+	min-height:300px;
+	max-height:550px;
+	transform:translateY(0);
+	transition: all 1s;
+	transition-delay: 0.25s;
+	opacity:1;
 
-		.card-wrapper {
-			width:16.666%;
-			padding:0.5em;
-		}
+	.card-wrapper {
+		width:16.666%;
+		padding:0.5em;
 	}
+}
 
-	&.hide {
-		animation: none;
+&.hide {
+	animation: none;
 		.board {
 			opacity:0;
 			transform:translateY(100vh);
