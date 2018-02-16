@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="a memory game">
+
+      <title>Memory Game</title>
+      <link rel="stylesheet" href="./css/MemoryGame.css"/>
+   </head>
+   <body>
+      <!-- hud -->
+      <header class="hud overlay">
+			<div class="hudpart overlay">
+				<span class="text" id="displayMessage">a memory Game: click the cards to flip. match each set of 2!</span>
+				<button class="button" id="buttonStart">play</button>
+			</div>
+			<div class="hudpart">
+	         <span class="text" id="displayScore">matched: 0</span>
+	         <span class="text" id="displayTimer">time: 0:00</span>
+            <span class="space"></span>
+	         <button class="button" id="buttonHint">hint</button>
+	         <button class="button" id="buttonReset">reset</button>
+			</div>
+      </header>
+
+      <!-- board -->
+		<div class="board-wrapper hide">
+      	<div class="board"></div>
+		</div>
+
+      <!-- card template -->
+      <div class="card">
+         <div class="hoverzone"></div>
+         <div class="hoverzone"></div>
+         <div class="hoverzone"></div>
+         <div class="hoverzone"></div>
+         <div class="focus"></div>
+         <div class="content-wrapper">
+            <div class="cover">
+               <div class="icon">?</div>
+            </div>
+            <div class="content">
+               <div class="value"></div>
+            </div>
+         </div>
+      </div>
+
+      <!-- javascripts -->
+      <script src="./js/MemoryGame.js"></script>
+		<script>
+			var myMemoryGame = new MemoryGame({
+            values: ['🐶','🐺','🐱','🐯','🐴','🐮','🐷','🐗','🐭','🐹','🐰','🐻','🐨','🐼','🐔','🐤','🐦','🐧','🐸'],
+				board: document.querySelector('.board'),
+				cardTemplate: document.querySelector('.card'),
+				buttonStart: document.querySelector('#buttonStart'),
+				buttonReset: document.querySelector('#buttonReset'),
+				buttonHint: document.querySelector('#buttonHint'),
+				onStart: () => {
+					document.querySelector('.hud').classList.remove('overlay');
+               document.querySelector('.board-wrapper').classList.remove('hide');
+				},
+				onEnd: (stats) => {
+					document.querySelector('#displayMessage').innerHTML = `completed in: ${stats.time}. Using ${stats.hints} hint${stats.hints == 1 ? '' : 's'} and ${stats.clicks} clicks!`;
+               document.querySelector('#displayTimer').innerHTML = '';
+					document.querySelector('#buttonStart').innerHTML = `play again`;
+               document.querySelector('.board-wrapper').classList.add('hide');
+					document.querySelector('.hud').classList.add('overlay');
+				},
+				onTimer: (time, minutes, seconds) => {
+					document.querySelector('#displayTimer').innerHTML = `time: ${time}`;
+				},
+				onMatched: (matches, cards) => {
+					document.querySelector('#displayScore').innerHTML = `matched: ${matches}/${cards}`;
+				}
+			});
+		</script>
+   </body>
+</html>

@@ -1,0 +1,45 @@
+html, body{
+	font-family: 'Karla', sans-serif;
+	height:100%;
+   padding:0px;
+   margin:0px;
+	background:#111;
+   color:#FFF;
+}
+
+body{
+	box-sizing:border-box;
+	padding-top: 50px;
+	min-width:280px;
+	font-size:16px;
+	margin:auto;
+	animation:fadeIn 1s;
+
+	*:not(script) { // Reset
+		box-sizing: border-box;
+		background:transparent;
+		padding:0; margin:0 auto;
+		display:block;
+		border:none;
+		color:#FFF;
+	}
+}
+
+@media (max-width: 900px) {
+   body{ font-size:14px; }
+}
+
+@media (max-width: 600px) {
+	body{ font-size:12px; }
+}
+
+@keyframes overflowAfterAnimation {
+	from { overflow: auto; }
+	to { overflow: auto; }
+}
+
+@keyframes fadeIn{
+	0% { opacity: 0; }
+	50% { opacity: 0; }
+	100% { opacity: 1; }
+}
