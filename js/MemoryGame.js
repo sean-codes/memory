@@ -49,6 +49,7 @@ class MemoryGame {
 	}
 
 	gameStart() {
+		this.stats = { clicks: 0, hints: 0, time: 0 };
 		this.cards = [];
 		this.matches = 0;
 		this.startTime = new Date();
